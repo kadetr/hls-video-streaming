@@ -8,21 +8,15 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
   position: sticky;
-  top: 0;
-  z-index: 10;
-
-  @media screen and (max-width: 960px) {
-    transition: 0.8s all ease;
-  }
+  font-family: Quicksand, arial, sans-serif;
+  border-radius: 8px;
 `;
 
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 80px;
-  z-index: 1;
   width: 100%;
   padding: 0 24px;
   max-width: 1600px;
@@ -52,7 +46,7 @@ export const NavItem = styled.li`
 
 export const NavLinks = styled(Link)`
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 24px;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -61,8 +55,7 @@ export const NavLinks = styled(Link)`
   cursor: pointer;
   border-bottom: 3px solid transparent;
 
-  &:hover,
-  &:active {
-    border-bottom: 3px solid #926aa2;
+  &:hover {
+    border-bottom: 3px solid #db4c77;
   }
 `;

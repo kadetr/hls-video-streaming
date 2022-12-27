@@ -3,6 +3,7 @@ import View from "./pages/view/view.js";
 import Header from "./components/header/Header.js";
 import List from "./pages/list/list.js";
 import Upload from "./pages/upload/upload.js";
+import { Footer } from "./components/footer/Footer.js";
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
           <Route path="/video/list" element={<List />} />
           <Route path="/video/upload" element={<Upload />} />
         </Routes>
+
+        <Footer />
       </Router>
     </>
   );

@@ -1,0 +1,61 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - 8080:8080
+    networks:
+      - networked
+
+  redisss:
+    image: redis:latest
+    networks:
+      - networked
+
+  api:
+    image: node:16
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    volumes:
+      - /hls-streaming-backend/node_modules
+      - hls-db-data:/hls-streaming-backend/db
+      - hls-videos:/hls-streaming-backend/videos
+      - hls-playlists:/hls-streaming-backend/playlists
+    depends_on:
+      - redisss
+    ports:
+      - 6001:6001
+    networks:
+      - networked
+
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    volumes:
+      - /hls-streaming-frontend/node_modules
+    depends_on:
+      - api
+    ports:
+      - 3000:3000
+    networks:
+      - networked
+
+volumes:
+  hls-db-data:
+    driver: local
+  hls-videos:
+    driver: local
+  hls-playlists:
+    driver: local
+
+networks:
+  networked:
