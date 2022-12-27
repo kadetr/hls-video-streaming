@@ -4,7 +4,7 @@ import { FooterContent, FooterWrapper } from "./footerElements";
 export const Footer = () => {
   return (
     <FooterWrapper>
-      <FooterContent>KDT - Copyright &copy; 2022</FooterContent>
+      <FooterContent>KDT - Serbest Kullanım - 2022</FooterContent>
     </FooterWrapper>
   );
 };

@@ -5,7 +5,7 @@ import { connectQueue } from "../queue/config";
 import { IVideoRequest } from "../types/custom";
 import { Response } from "express";
 
-//Queue process
+//Queue process config
 const jobOptions = {
   removeOnComplete: true,
   attempts: 3,
@@ -22,7 +22,7 @@ const init = async (data: object) => {
 export const viewer = (req: IVideoRequest, res: Response) => {
   var filePath = `./playlists/${req.params.ID}.m3u8`;
 
-  fs.readFile(filePath, function (error, content) {
+  fs.readFile(filePath, function (error: any, content: any) {
     res.writeHead(200, { "Access-Control-Allow-Origin": "*" });
     if (error) {
       if (error.code == "ENOENT") {
@@ -75,5 +75,3 @@ export const uploader = (req: any, res: Response) => {
     console.log(res.data.header);
   });
 };
-
-module.exports = { viewer, lister, uploader };

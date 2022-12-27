@@ -10,13 +10,11 @@ const App = () => {
     <>
       <Router>
         <Header />
-
         <Routes>
           <Route path="/video/player/:ID" element={<View />} />
           <Route path="/video/list" element={<List />} />
           <Route path="/video/upload" element={<Upload />} />
         </Routes>
-
         <Footer />
       </Router>
     </>

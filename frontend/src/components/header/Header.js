@@ -1,7 +1,6 @@
 import "./headerElements.js";
 import {
   Icon,
-  MobileIcon,
   Nav,
   NavbarContainer,
   NavItem,
